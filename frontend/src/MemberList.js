@@ -10,7 +10,8 @@ const MemberList = () => {
 
  
   useEffect(() => {
-    fetch('http://localhost:3001/api/members')
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+    fetch(`${apiUrl}/api/members`)
       .then((response) => response.json())
       .then((data) => {
         setMembers(data);
