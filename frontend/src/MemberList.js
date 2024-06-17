@@ -10,12 +10,13 @@ const MemberList = () => {
 
  
   useEffect(() => {
-    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3012';
     fetch(`${apiUrl}/api/members`)
       .then((response) => response.json())
       .then((data) => {
         setMembers(data);
         setFilteredMembers(data);
+        console.log(data);
       })
       .catch((error) => {
         console.error('Error fetching members from backend server:', error);
